@@ -1,4 +1,9 @@
 # customizable_load_balancer
+## Group Members
+- 146173 Traciebel Wairimu 
+- 141880 Gailyn Opiyo
+- 143504 Kennedy Gakera
+- 145214 Treddy Njenga
 
 ## Getting Started
 
@@ -24,9 +29,9 @@
 
 ### Load Balancer Overview
 
-The load balancer uses consistent hashing  to distribute client requests across multiple server instances. Consistent hashing is a technique that allows efficient and scalable distribution of keys (in this case, client requests) across dynamic set of nodes.It minimises the number of keys that need to be remapped when nodes are added or removed.
+The load balancer uses consistent hashing  to distribute client requests across multiple server instances. Consistent hashing is a technique that allows efficient and scalable distribution of keys (in this case, client requests) across dynamic set of nodes.It minimizes the number of keys that need to be remapped when nodes are added or removed.
 
-  ### 1. Consistent Hashning implementation
+  ### 1. Consistent Hashing implementation
   1. **Initialization**:
      ```bash
      class ConsistentHashing:
@@ -81,7 +86,7 @@ The load balancer uses consistent hashing  to distribute client requests across 
      app = Flask(_name_)
      ch = ConsistentHashing()
    - Creates a Flask application and initializes a 'ConsistentHashing' instance.
-  2. **Check Crurrent Replicas**
+  2. **Check Current Replicas**
      ```bash
      @app.route('/rep', methods=['GET'])
      def get_replicas():
@@ -122,7 +127,7 @@ The load balancer uses consistent hashing  to distribute client requests across 
 **Adding/Removing Servers**
 -When a server is added, its replicas are hashed and placed on the ring. When a server is removed, its replicas are removed from the ring.
 
-**Routung Requests**
+**Routing Requests**
 Each incoming request is hashed to determine its position on the ring. The load balancer then finds the nearest server in a clockwise direction from this position. If no server is found in the clockwise direction, it wraps around to the first server in the ring.
 
 
