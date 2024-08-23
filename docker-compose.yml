@@ -1,18 +1,27 @@
-version: '3'
+version: '3.9'
 services:
   load_balancer:
-    build: .
+    build:
+      dockerfile: Dockerfile.load_balancer
     ports:
       - "5000:5000"
+    depends_on:
+      - server1
+      - server2
+      - server3
+
   server1:
-    build: .
+    build:
+      dockerfile: Dockerfile.server
     environment:
       - SERVER_ID=1
   server2:
-    build: .
+    build:
+      dockerfile: Dockerfile.server
     environment:
       - SERVER_ID=2
   server3:
-    build: .
+    build:
+      dockerfile: Dockerfile.server
     environment:
       - SERVER_ID=3
